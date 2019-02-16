@@ -1,13 +1,13 @@
 import os
-import ntpath
+import SearchFileString
 
-input_dir = "tttttt"
+input_dir = "C:/"
 
 
 def create_folder(directory, key):
     try:
         if not os.path.exists(directory):
-            os.makedirs(directory + "/" + key)
+            os.makedirs(directory + "\\" + key)
     except OSError:
         print('Error: Creating directory. ' + directory)
 
@@ -16,5 +16,4 @@ def create_folder(directory, key):
 
 def trans(path, key):
 
-    head1, tail2 = ntpath.split(path)
-    os.rename(path, input_dir + key + tail2)
+    os.rename(path, input_dir + key + "/" + SearchFileString.returnfilename(path))
