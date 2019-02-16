@@ -34,9 +34,13 @@ def sortfolder(filenames, keyword, directory):
 def main():
     # this returns a tuple based on the selected files of the user
     filenames = tkinter.filedialog.askopenfilenames()
-    keyword = "key"
+    keywords = ["ECOR","1","carbon"]
     directory = "C:\\"
-    sortfolder(filenames, keyword, directory)
+    for x in range(keywords):
+        keyword = keywords[x]
+        sortfolder(filenames, keyword, directory)
+
+
 
 if __name__ == "__main__":
     main()
