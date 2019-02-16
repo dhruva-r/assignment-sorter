@@ -36,7 +36,7 @@ def main():
     filenames = tkinter.filedialog.askopenfilenames()
     keywords = ["ECOR","1","carbon"]
     directory = "C:\\"
-    for x in range(keywords):
+    for x in range(len(keywords)):
         keyword = keywords[x]
         sortfolder(filenames, keyword, directory)
 
