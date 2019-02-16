@@ -17,14 +17,9 @@ def returnfilename(filepath):
     return tail
 
 
-def main():
-    # this returns a tuple based on the selected files of the user
-    filenames = tkinter.filedialog.askopenfilenames()
+def sortfolder(filenames, keyword, directory):
     length = (len(filenames))
     # this keyword will be set based on the input of the user on what to search
-    keyword = "key"
-
-    directory = "C:\\"
 
     for x in range(length):
         filepath = filenames[x]
@@ -36,6 +31,12 @@ def main():
             Transport.create_folder("", "other")
             Transport.trans(filepath, "other")
 
+def main():
+    # this returns a tuple based on the selected files of the user
+    filenames = tkinter.filedialog.askopenfilenames()
+    keyword = "key"
+    directory = "C:\\"
+    sortfolder(filenames, keyword, directory)
 
 if __name__ == "__main__":
     main()
