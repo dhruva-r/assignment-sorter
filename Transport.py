@@ -1,5 +1,5 @@
 import os
-import ntpath
+import SearchFileString
 
 input_dir = "C:/"
 
@@ -16,7 +16,4 @@ def create_folder(directory, key):
 
 def trans(path, key):
 
-    head2, tail2 = ntpath.split(path)
-    os.rename(path, input_dir + key + "/" + tail2)
-
-
+    os.rename(path, input_dir + key + "/" + SearchFileString.returnfilename(path))
