@@ -13,17 +13,22 @@ def returnfilename(filepath):
     head, tail = ntpath.split(filepath)
     return tail
 
-# this returns a tuple based on the selected files of the user
-filename = tkinter.filedialog.askopenfilenames()
+def main():
+    # this returns a tuple based on the selected files of the user
+    filename = tkinter.filedialog.askopenfilenames()
+    length = (len(filename))
+    # this keyword will be set based on the input of the user on what to search
+    keyword = "key"
 
+    for x in range (length):
+        filepath = filename[x]
+        filename = returnfilename(filepath)
+        if search(filename, keyword) == True:
+            # this is where you would transfer the file to folder filename
+        else:
+            # this is where you would move the file to other folder
 
-
-
-
-
-length = (len(filename))
-file = filename[0]
-returnfilename(file)
-
+if __name__ == "__main__":
+    main()
 
 
