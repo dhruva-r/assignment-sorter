@@ -1,3 +1,4 @@
+
 # !/usr/bin/python3
 from tkinter import *
 
@@ -11,4 +12,5 @@ def hello():
 B1 = Button(top, text = "Say Hello", command = hello)
 B1.place(x = 35,y = 70)
 
-top.mainloop()
+topmainloop() .
+
