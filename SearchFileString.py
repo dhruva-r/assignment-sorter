@@ -23,10 +23,10 @@ def main():
     for x in range (length):
         filepath = filename[x]
         filename = returnfilename(filepath)
-        if search(filename, keyword) == True:
+        if search(filename, keyword):
             # this is where you would transfer the file to folder filename
         else:
-            # this is where you would move the file to other folder
+# this is where you would move the file to other folder
 
 if __name__ == "__main__":
     main()
