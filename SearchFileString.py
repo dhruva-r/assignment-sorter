@@ -2,23 +2,28 @@ import tkinter
 import tkinter.filedialog
 import ntpath
 
-filename = tkinter.filedialog.askopenfilenames()
-print(filename)
-print(len(filename))
-tail = filename[0]
-print(tail)
-head, tail = ntpath.split(filename[0])
-print(head)
-print(tail)
-# this function just checks the filename for the keyword, returns true if it is there, false if not
-
-
 def search(fname, kword):
+    # this function just checks the filename for the keyword, returns true if it is there, false if not
     if fname.find(kword) != -1:
         return True
     return False
 
+def returnfilename(filepath):
+    # this function takes the filepath and returns the filename
+    head, tail = ntpath.split(filepath)
+    return tail
 
-def returnfilename(fPath):
+# this returns a tuple based on the selected files of the user
+filename = tkinter.filedialog.askopenfilenames()
 
-    return ""
+
+
+
+
+
+length = (len(filename))
+file = filename[0]
+returnfilename(file)
+
+
+
