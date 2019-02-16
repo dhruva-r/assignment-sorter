@@ -1,6 +1,6 @@
-from tkinter import filedialog
-from tkinter import *
+import tkinter
+import tkinter.filedialog
 
-root = Tk()
-root.filename = filedialog.askopenfilename()
-print(root.filename)
+filename = tkinter.filedialog.askopenfilenames()
+print(filename)
+print(len(filename))
