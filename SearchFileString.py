@@ -1,6 +1,8 @@
 import tkinter
 import tkinter.filedialog
 import ntpath
+import Transport
+
 
 def search(fname, kword):
     # this function just checks the filename for the keyword, returns true if it is there, false if not
@@ -24,9 +26,11 @@ def main():
         filepath = filename[x]
         filename = returnfilename(filepath)
         if search(filename, keyword):
-            # this is where you would transfer the file to folder filename
+            Transport.create_folder("","")
+            Transport.trans(filepath, keyword)
         else:
-# this is where you would move the file to other folder
+            Transport.create_folder("", "other")
+            Transport.trans(filepath, "other")
 
 if __name__ == "__main__":
     main()
