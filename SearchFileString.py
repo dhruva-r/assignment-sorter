@@ -26,13 +26,15 @@ def sortfolder(filenames, keyword, directory):
         filename = returnfilename(filepath)
         if search(filename, keyword):
             Transport.create_folder(directory, keyword)
-            print(directory)
+'''            print(directory)
             Transport.trans(directory, filepath, keyword)
+'''
         else:
             Transport.create_folder(directory, "other")
+'''
             print(directory)
             Transport.trans(directory, filepath, "other")
-
+'''
 def main():
     # this returns a tuple based on the selected files of the user
     filenames = tkinter.filedialog.askopenfilenames()
