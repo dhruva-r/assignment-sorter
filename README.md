@@ -1,6 +1,6 @@
 # cuHacking2019
 
-This is a file sorting and managing project for cuHacking on 2/16/2019. 
+This is a file sorting and managing project for cuHacking.
 This project was created by Dhruva Rajkumar, Kareem El Assad, Isaac Leung, and Mathew Siu.
 
 
