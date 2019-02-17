@@ -62,8 +62,10 @@ def set_directory(s):
     global directory
     directory = s
 
+
 def empty():
     return empty
+
 
 def main():
     # this returns a tuple based on the selected files of the user

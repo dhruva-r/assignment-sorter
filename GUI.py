@@ -67,7 +67,7 @@ class Application(tk.Frame):
         # Arrange objects
         self.keyword_label.place(x= 2,y = 10)
         self.keyword_box.place(x = 67, y =10)
-        self.add.place(x = 208, y =100)
+        self.add.place(x = 208, y =10)
         self.delete.place(x = 258, y =10)
         self.directory_path.place(x = 344, y =10)
         self.confirm.place(x = 485, y =10)
