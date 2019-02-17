@@ -1,6 +1,6 @@
 import tkinter as tk
 from tkinter import messagebox
-from tkinter import BOTH, DISABLED, ACTIVE, EXTENDED
+from tkinter import BOTH, DISABLED, ACTIVE
 from Backend import *
 
 class Application(tk.Frame):
@@ -10,27 +10,18 @@ class Application(tk.Frame):
         self.pack(fill=BOTH, expand=1)
         self.create_widgets()
 
-    def onEnter(self, event=None):
-        if self.focus_get() == self.keyword_box:
-            self.add_entry()
-        elif self.focus_get() == self.directory_path:
-            self.new_directory()
-
     def create_widgets(self):
         # Background image
         self.photo = tk.PhotoImage(file = "background.gif")
         self.background = tk.Label(self, image = self.photo)
         self.background.image = self.photo
 
-        # Binded Keys
-        self.master.bind('<Return>', self.onEnter)
-
         # Button for quitting the application
         self.quit = tk.Button(self, text="QUIT", fg="red",
                               command=self.master.destroy)
 
         # Textbox that contains the entries to be added
-        self.entries = tk.Listbox(self, selectmode = EXTENDED)
+        self.entries = tk.Listbox(self)
 
         # Scrollbar for the entries
         self.scrollbar = tk.Scrollbar(self)
@@ -78,14 +69,7 @@ class Application(tk.Frame):
         self.background.place(x = 0, y =0)
 
     def delete_entry(self):
-        selected = list(self.entries.curselection())
-        selection = self.entries.curselection()
-        if selection:
-            index = selected[0]
-            for i in range(0,len(selected)):
-                self.entries.delete(index)
-                i += 1
-
+        self.entries.delete(ACTIVE)
 
     def help_text(self):
         messagebox.showinfo("How to use File Sorter", "To get started add some keywords using the top left section"
@@ -106,10 +90,7 @@ class Application(tk.Frame):
         for i in range(0,self.entries.size()):
             grab_keywords(self.entries.get(i))
         main()
-        if empty() == False:
-            messagebox.showinfo("Yay! You're done!", "You have successfully moved your files")
-        else:
-            messagebox.showinfo("File Moving", "Oh no! You haven't selected any files to move")
+        messagebox.showinfo("Yay! You're done!", "You have added your selected entries")
 
     def add_entry(self):
         if(self.keyword_box.get() != ""):
@@ -117,6 +98,5 @@ class Application(tk.Frame):
             self.keyword_box.delete(0, 'end')
 
 root = tk.Tk()
-root.resizable(False,False)
 app = Application(master=root)
 app.mainloop()
