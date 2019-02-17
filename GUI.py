@@ -1,6 +1,6 @@
 import tkinter as tk
 from tkinter import messagebox
-from tkinter import BOTH, DISABLED, ACTIVE
+from tkinter import BOTH, DISABLED, ACTIVE, EXTENDED
 from Backend import *
 
 class Application(tk.Frame):
@@ -21,7 +21,7 @@ class Application(tk.Frame):
                               command=self.master.destroy)
 
         # Textbox that contains the entries to be added
-        self.entries = tk.Listbox(self)
+        self.entries = tk.Listbox(self, selectmode = EXTENDED)
 
         # Scrollbar for the entries
         self.scrollbar = tk.Scrollbar(self)
@@ -58,7 +58,7 @@ class Application(tk.Frame):
         # Arrange objects
         self.keyword_label.place(x= 2,y = 10)
         self.keyword_box.place(x = 67, y =10)
-        self.add.place(x = 208, y =10)
+        self.add.place(x = 208, y =100)
         self.delete.place(x = 258, y =10)
         self.directory_path.place(x = 344, y =10)
         self.confirm.place(x = 485, y =10)
@@ -69,7 +69,12 @@ class Application(tk.Frame):
         self.background.place(x = 0, y =0)
 
     def delete_entry(self):
-        self.entries.delete(ACTIVE)
+        selected = list(self.entries.curselection())
+        index = selected[0]
+        for i in range(0,len(selected)):
+            self.entries.delete(index)
+            i += 1
+
 
     def help_text(self):
         messagebox.showinfo("How to use File Sorter", "To get started add some keywords using the top left section"
