@@ -3,6 +3,7 @@ from tkinter import messagebox
 from tkinter import BOTH, DISABLED, ACTIVE
 from Backend import *
 
+
 class Application(tk.Frame):
     def __init__(self, master=None):
         super().__init__(master, width = 725, height = 350)
@@ -10,7 +11,7 @@ class Application(tk.Frame):
         self.pack(fill=BOTH, expand=1)
         self.create_widgets()
 
-    def onEnter(self, event = None):
+    def on_enter(self, event = None):
         if self.get_focus == self.keyword_box:
             self.add_entry()
         elif self.get_focus == self.directory_path:
@@ -23,7 +24,7 @@ class Application(tk.Frame):
         self.background.image = self.photo
 
         # Keybind
-        self.master.bind("<Return>", self.onEnter)
+        self.master.bind("<Return>", self.on_enter)
 
         # Button for quitting the application
         self.quit = tk.Button(self, text="QUIT", fg="red",
@@ -99,12 +100,13 @@ class Application(tk.Frame):
         for i in range(0,self.entries.size()):
             grab_keywords(self.entries.get(i))
         main()
-        messagebox.showinfo("Yay! You're done!", "You have added your selected entries")
+        messagebox.showinfo("Yay! You're done!", "Your items are sorted.")
 
     def add_entry(self):
-        if(self.keyword_box.get() != ""):
+        if self.keyword_box.get() != "":
             self.entries.insert(0, self.keyword_box.get())
             self.keyword_box.delete(0, 'end')
+
 
 root = tk.Tk()
 app = Application(master=root)
