@@ -2,6 +2,7 @@ import tkinter as tk
 from tkinter import messagebox
 from tkinter import BOTH, DISABLED, ACTIVE
 from Backend import *
+from PIL import Image,ImageTk
 
 class Application(tk.Frame):
     def __init__(self, master=None):
@@ -11,6 +12,11 @@ class Application(tk.Frame):
         self.create_widgets()
 
     def create_widgets(self):
+        # Background image
+        bg_image = Image.open("background.png")
+        bg_photo = ImageTk.PhotoImage(bg_image)
+        self.background = tk.Label(self, image = bg_photo)
+
         # Button for quitting the application
         self.quit = tk.Button(self, text="QUIT", fg="red",
                               command=self.master.destroy)
@@ -59,6 +65,7 @@ class Application(tk.Frame):
         self.scrollbar.place(x = 200, y = 100, height = 170)
         self.go.place(x = 345, y = 100, height = 150, width = 150)
         self.help.place(x = 5, y = 310)
+        self.background.place(x= 0,y=0, relwidth=1, relheight=1)
 
     def delete_entry(self):
         self.entries.delete(ACTIVE)
