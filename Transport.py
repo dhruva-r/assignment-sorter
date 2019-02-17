@@ -2,8 +2,6 @@ import os
 import SearchFileString
 
 
-
-
 def create_folder(directory, key):
     try:
         if not os.path.exists(directory):
