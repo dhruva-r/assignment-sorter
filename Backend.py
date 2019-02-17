@@ -50,6 +50,15 @@ def trans(directory, path, key):
     os.rename(path, directory + "/" + key + "/" + returnfilename(path))
 
 
+i = 0
+keywords = []
+
+
+def grab_keywords(k):
+
+    keywords.append(k)
+
+
 def main():
     # this returns a tuple based on the selected files of the user
     filenames = tkinter.filedialog.askopenfilenames()
