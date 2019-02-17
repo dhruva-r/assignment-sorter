@@ -26,10 +26,12 @@ def sortfolder(filenames, keyword, directory):
         filename = returnfilename(filepath)
         if search(filename, keyword):
             Transport.create_folder(directory, keyword)
-            Transport.trans(filepath, keyword)
+            print(directory)
+            Transport.trans(directory, filepath, keyword)
         else:
             Transport.create_folder(directory, "other")
-            Transport.trans(filepath, "other")
+            print(directory)
+            Transport.trans(directory, filepath, "other")
 
 def main():
     # this returns a tuple based on the selected files of the user
