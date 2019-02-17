@@ -2,20 +2,19 @@ import tkinter as tk
 from tkinter import messagebox
 from tkinter import BOTH, DISABLED, ACTIVE
 from Backend import *
-from PIL import Image,ImageTk
 
 class Application(tk.Frame):
     def __init__(self, master=None):
-        super().__init__(master, width = 580, height = 350)
+        super().__init__(master, width = 725, height = 350)
         self.master = master
         self.pack(fill=BOTH, expand=1)
         self.create_widgets()
 
     def create_widgets(self):
         # Background image
-        bg_image = Image.open("background.png")
-        bg_photo = ImageTk.PhotoImage(bg_image)
-        self.background = tk.Label(self, image = bg_photo)
+        self.photo = tk.PhotoImage(file = "background.gif")
+        self.background = tk.Label(self, image = self.photo)
+        self.background.image = self.photo
 
         # Button for quitting the application
         self.quit = tk.Button(self, text="QUIT", fg="red",
@@ -32,8 +31,10 @@ class Application(tk.Frame):
         self.scrollbar.config(command = self.entries.yview)
 
         # Button to add all the entries
-        self.go = tk.Button(self, text = "GO", state = DISABLED)
+        self.bg_go = tk.PhotoImage(file = "Button_go.gif")
+        self.go = tk.Button(self, text = "GO", state = DISABLED, image = self.bg_go)
         self.go["command"] = self.assignment
+        self.go.image = self.bg_go
 
         # Button for adding files to the pending list
         self.add = tk.Button(self, text = "Add", fg = "black")
@@ -48,24 +49,24 @@ class Application(tk.Frame):
         self.help["command"] = self.help_text
 
         # Box and label for accepting files
-        self.keyword_label = tk.Label(self, text = "Keyword(s): ")
+        self.keyword_label = tk.Label(self, text = "Keyword(s): ", background = "#62B3FF")
         self.keyword_box = tk.Entry(self, bd = 5)
         self.directory_path = tk.Entry(self, bd = 5)
         self.confirm = tk.Button(self,text=  "Confirm")
         self.confirm["command"] = self.new_directory
 
         # Arrange objects
-        self.keyword_label.place(x= 0,y = 10)
+        self.keyword_label.place(x= 2,y = 10)
         self.keyword_box.place(x = 67, y =10)
         self.add.place(x = 208, y =10)
         self.delete.place(x = 258, y =10)
         self.directory_path.place(x = 344, y =10)
         self.confirm.place(x = 485, y =10)
-        self.entries.place(x = 73, y = 100)
-        self.scrollbar.place(x = 200, y = 100, height = 170)
-        self.go.place(x = 345, y = 100, height = 150, width = 150)
+        self.entries.place(x = 73, y = 125)
+        self.scrollbar.place(x = 200, y = 125, height = 170)
+        self.go.place(x = 345, y = 125, height = 150, width = 150)
         self.help.place(x = 5, y = 310)
-        self.background.place(x= 0,y=0, relwidth=1, relheight=1)
+        self.background.place(x = 0, y =0)
 
     def delete_entry(self):
         self.entries.delete(ACTIVE)
