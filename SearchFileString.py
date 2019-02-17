@@ -26,7 +26,7 @@ def sortfolder(filenames, keyword, directory):
         filename = returnfilename(filepath)
         if search(filename, keyword):
             Transport.create_folder(directory, keyword)
-            Transport.trans(filepath, directory)
+            Transport.trans(filepath, keyword)
         else:
             Transport.create_folder(directory, "other")
             Transport.trans(filepath, "other")
