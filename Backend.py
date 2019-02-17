@@ -7,7 +7,7 @@ keywords = []
 
 def search(fname, kword):
     # this function just checks the filename for the keyword, returns true if it is there, false if not
-    if fname.find(kword) != -1:
+    if fname.lower().find(kword.lower()) != -1:
         return True
     return False
 
@@ -64,7 +64,6 @@ def set_directory(s):
 
 def main():
     # this returns a tuple based on the selected files of the user
-    set_directory("C:/")
     filenames = tkinter.filedialog.askopenfilenames()
     for x in range(len(keywords)):
         keyword = keywords[x]
