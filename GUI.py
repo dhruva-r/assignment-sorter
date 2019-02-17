@@ -70,10 +70,12 @@ class Application(tk.Frame):
 
     def delete_entry(self):
         selected = list(self.entries.curselection())
-        index = selected[0]
-        for i in range(0,len(selected)):
-            self.entries.delete(index)
-            i += 1
+        selection = self.entries.curselection()
+        if selection:
+            index = selected[0]
+            for i in range(0,len(selected)):
+                self.entries.delete(index)
+                i += 1
 
 
     def help_text(self):
