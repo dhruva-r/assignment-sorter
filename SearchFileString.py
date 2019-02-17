@@ -29,18 +29,12 @@ def sortfolder(filenames, keyword, directory):
             print(directory)
             Transport.trans(directory, filepath, keyword)
 
-        else:
-            Transport.create_folder(directory, "other")
-
-            print(directory)
-            Transport.trans(directory, filepath, "other")
-
 
 def main():
     # this returns a tuple based on the selected files of the user
     filenames = tkinter.filedialog.askopenfilenames()
-    keywords = ["ECOR", "1", "carbon"]
-    directory = "C:\\"
+    keywords = ["ECOR", "Young", "carbon"]
+    directory = "C:/Users/dhruv/Documents"
     for x in range(len(keywords)):
         keyword = keywords[x]
         sortfolder(filenames, keyword, directory)
