@@ -62,7 +62,7 @@ def grab_keywords(k):
 def main():
     # this returns a tuple based on the selected files of the user
     filenames = tkinter.filedialog.askopenfilenames()
-    keywords = ["ECOR", "PUMP", "TUTORIAL"]
+    keywords.append(".")
     directory = "C:/Users/dhruv/Documents"
     for x in range(len(keywords)):
         keyword = keywords[x]
