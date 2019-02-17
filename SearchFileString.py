@@ -1,7 +1,7 @@
 import tkinter
 import tkinter.filedialog
 import ntpath
-import Transport
+import os
 
 
 def search(fname, kword):
@@ -25,9 +25,28 @@ def sortfolder(filenames, keyword, directory):
         filepath = filenames[x]
         filename = returnfilename(filepath)
         if search(filename, keyword):
-            Transport.create_folder(directory, keyword)
+            create_folder(directory, keyword)
             print(directory)
-            Transport.trans(directory, filepath, keyword)
+            trans(directory, filepath, keyword)
+
+
+def create_folder(directory, key):
+    try:
+        if not os.path.exists(directory + "/" + key):
+            os.makedirs(directory + "/" + key)
+        else:
+            print("suhfis")
+    except OSError:
+        print('Error: Creating directory. ' + directory)
+
+# Creates a folder in the current directory called data
+
+
+def trans(directory, path, key):
+
+    print(path)
+    print(directory + key + "/" + returnfilename(path))
+    os.rename(path, directory + "/" + key + "/" + returnfilename(path))
 
 
 def main():
