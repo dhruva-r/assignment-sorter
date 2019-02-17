@@ -10,11 +10,20 @@ class Application(tk.Frame):
         self.pack(fill=BOTH, expand=1)
         self.create_widgets()
 
+    def onEnter(self, event=None):
+        if self.focus_get() == self.keyword_box:
+            self.add_entry()
+        elif self.focus_get() == self.directory_path:
+            self.new_directory()
+
     def create_widgets(self):
         # Background image
         self.photo = tk.PhotoImage(file = "background.gif")
         self.background = tk.Label(self, image = self.photo)
         self.background.image = self.photo
+
+        # Binded Keys
+        self.master.bind('<Return>', self.onEnter)
 
         # Button for quitting the application
         self.quit = tk.Button(self, text="QUIT", fg="red",
