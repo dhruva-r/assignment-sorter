@@ -4,6 +4,7 @@ import ntpath
 import os
 
 keywords = []
+empty = False
 
 def search(fname, kword):
     # this function just checks the filename for the keyword, returns true if it is there, false if not
@@ -61,14 +62,19 @@ def set_directory(s):
     global directory
     directory = s
 
+def empty():
+    return empty
 
 def main():
     # this returns a tuple based on the selected files of the user
     filenames = tkinter.filedialog.askopenfilenames()
+    if filenames == '':
+        empty = True
+    else:
+        empty = False
     for x in range(len(keywords)):
         keyword = keywords[x]
         sortfolder(filenames, keyword, directory)
-
 
 if __name__ == "__main__":
     main()
