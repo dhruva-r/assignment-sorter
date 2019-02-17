@@ -28,7 +28,7 @@ def sortfolder(filenames, keyword, directory):
             Transport.create_folder(directory, keyword)
             Transport.trans(filepath, directory)
         else:
-            Transport.create_folder("", "other")
+            Transport.create_folder(directory, "other")
             Transport.trans(filepath, "other")
 
 def main():
