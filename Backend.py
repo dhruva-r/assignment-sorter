@@ -31,11 +31,12 @@ def sortfolder(filenames, keyword, directory):
 
 
 def create_folder(directory, key):
+    # This function checks if a dir exists if not, throws error and prints to console, if it does creates folder
     try:
         if not os.path.exists(directory + "/" + key):
             os.makedirs(directory + "/" + key)
         else:
-            print("suhfis")
+            print("Folder Already Exists")
     except OSError:
         print('Error: Creating directory. ' + directory)
 
@@ -43,7 +44,7 @@ def create_folder(directory, key):
 
 
 def trans(directory, path, key):
-
+    # this function transports the files by renaming the file
     print(path)
     print(directory + key + "/" + returnfilename(path))
     os.rename(path, directory + "/" + key + "/" + returnfilename(path))
@@ -52,7 +53,7 @@ def trans(directory, path, key):
 def main():
     # this returns a tuple based on the selected files of the user
     filenames = tkinter.filedialog.askopenfilenames()
-    keywords = ["ECOR", "Young", "carbon"]
+    keywords = ["ECOR", "PUMP", "TUTORIAL"]
     directory = "C:/Users/dhruv/Documents"
     for x in range(len(keywords)):
         keyword = keywords[x]
