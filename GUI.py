@@ -33,13 +33,13 @@ class Application(tk.Frame):
         self.add["command"] = self.add_entry
 
         # Box and label for accepting files
-        self.file_label = tk.Label(self, text = "Keyword(s): ")
+        self.keyword_label = tk.Label(self, text = "Keyword(s): ")
         self.file_box = tk.Entry(self, bd = 5)
         self.directory_path = tk.Entry(self, bd = 5)
         self.confirm = tk.Button(self,text=  "Confirm")
 
         # Arrange objects
-        self.file_label.place(x= 10,y = 15)
+        self.keyword_label.place(x= -4,y = 15)
         self.file_box.place(x = 60, y =10)
         self.add.place(x = 280, y =15)
         self.directory_path.place(x = 340, y =10)
