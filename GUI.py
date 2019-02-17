@@ -90,7 +90,10 @@ class Application(tk.Frame):
         for i in range(0,self.entries.size()):
             grab_keywords(self.entries.get(i))
         main()
-        messagebox.showinfo("Yay! You're done!", "You have added your selected entries")
+        if empty() == False:
+            messagebox.showinfo("Yay! You're done!", "You have successfully moved your files")
+        else:
+            messagebox.showinfo("File Moving", "Oh no! You haven't selected any files to move")
 
     def add_entry(self):
         if(self.keyword_box.get() != ""):
@@ -98,5 +101,6 @@ class Application(tk.Frame):
             self.keyword_box.delete(0, 'end')
 
 root = tk.Tk()
+root.resizable(False,False)
 app = Application(master=root)
 app.mainloop()
