@@ -66,7 +66,6 @@ def main():
     # this returns a tuple based on the selected files of the user
     set_directory("C:/")
     filenames = tkinter.filedialog.askopenfilenames()
-    keywords.append(".")
     for x in range(len(keywords)):
         keyword = keywords[x]
         sortfolder(filenames, keyword, directory)
