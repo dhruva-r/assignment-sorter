@@ -1,7 +1,7 @@
 import os
 import SearchFileString
 
-input_dir = "C:/"
+
 
 
 def create_folder(directory, key):
@@ -14,6 +14,6 @@ def create_folder(directory, key):
 # Creates a folder in the current directory called data
 
 
-def trans(path, key):
+def trans(directory, path, key):
 
-    os.rename(path, input_dir + key + "/" + SearchFileString.returnfilename(path))
+    os.rename(path, directory + key + "/" + SearchFileString.returnfilename(path))
