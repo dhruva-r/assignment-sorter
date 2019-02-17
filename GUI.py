@@ -12,9 +12,9 @@ class Application(tk.Frame):
         self.create_widgets()
 
     def on_enter(self, event = None):
-        if self.get_focus == self.keyword_box:
+        if self.focus_get() == self.keyword_box:
             self.add_entry()
-        elif self.get_focus == self.directory_path:
+        elif self.focus_get() == self.directory_path:
             self.new_directory()
 
     def create_widgets(self):
@@ -82,10 +82,12 @@ class Application(tk.Frame):
         self.entries.delete(ACTIVE)
 
     def help_text(self):
-        messagebox.showinfo("How to use File Sorter", "To get started add some keywords using the top left section"
-                                                      ", then use the top right to specify the directory where the "
-                                                      "sorted files will be, push confirm then GO. Your files should "
-                                                      "be in the new directory in a folder named after the keywords." )
+        messagebox.showinfo("How to use File Sorter", "First add the names of the classes that you need to sort the "
+                                                      "assignments for into the top left section (the keywords must be "
+                                                      "in the file names that you want to sort). After that specify a "
+                                                      "target folder in the top right (like C:). "
+                                                      "Then press the duck and your files should be sorted :)."
+                                                      "Made by: Team Duck Grayson.")
 
     def new_directory(self):
         if self.directory_path.get() != "":
