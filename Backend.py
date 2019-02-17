@@ -3,6 +3,7 @@ import tkinter.filedialog
 import ntpath
 import os
 
+keywords = []
 
 def search(fname, kword):
     # this function just checks the filename for the keyword, returns true if it is there, false if not
@@ -50,10 +51,6 @@ def trans(direc, path, key):
     os.rename(path, direc + "/" + key + "/" + returnfilename(path))
 
 
-keywords = []
-directory = "C:/Users/dhruv/Documents"
-
-
 def grab_keywords(k):
 
     keywords.append(k)
@@ -61,11 +58,13 @@ def grab_keywords(k):
 
 def set_directory(s):
 
+    global directory
     directory = s
 
 
 def main():
     # this returns a tuple based on the selected files of the user
+    set_directory("C:/")
     filenames = tkinter.filedialog.askopenfilenames()
     keywords.append(".")
     for x in range(len(keywords)):
