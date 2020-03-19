@@ -11,5 +11,3 @@ Those files are then placed into a specified directory.
 Developed in Python.
 
 This readme file is subjected to change over time.
-
-![Us](https://github.com/dhruva-r/cuHacking2019/blob/master/919660.jpg)
